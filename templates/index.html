@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Spreadsheet Analyzer</title>
+    </head>
+    <body>
+        <h1>Spreadsheet Analyzer</h1>
+        <form method="post" action="/" enctype=multipart/form-data>
+            <input type="file" name="file" />
+            <button type="submit">Upload</button>
+        </form>
+        <pre id="json-output"></pre>
+        <script>
+            var myObj = {{ data|safe }};
+            const jsonString = JSON.stringify(myObj, null, 2);
+            document.getElementById("json-output").textContent = jsonString;
+        </script>
+    </body>
+</html>
